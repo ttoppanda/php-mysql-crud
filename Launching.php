@@ -2,7 +2,14 @@
 
 class Launching{
 
-	public static function init($controllerName=false){
+	
+	public function __construct($url){
+		$this->contoller($url['c']);
+		
+		   
+	}
+	
+	private function contoller($controllerName = false){
 		$controllerName = ($controllerName)?$controllerName:'index';
 		$controllerRoute = ROOT.'controller'.DS.$controllerName.'Controller.php';
 		if (is_readable($controllerRoute)) {
@@ -10,6 +17,5 @@ class Launching{
 		} else {
 		 	throw new Exception('error 404');
 		}
-		  
 	}
 }

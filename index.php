@@ -10,8 +10,8 @@ try{
 
     require_once ROOT . 'Launching.php';
     require_once ROOT . 'controller/Controller.php';
-    $controller = (isset($_GET['c']))?$_GET['c']:'';
-    Launching::init($controller);
+
+    new Launching($_GET);
 
     
 }
