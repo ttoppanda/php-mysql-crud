@@ -1,8 +1,6 @@
 <?php
 
-class View{
-
-	
+class View{	
 
 	public function render($viewName = 'index'){
 		$this->isReadable(ROOT.'view'.DS.'header.php');
