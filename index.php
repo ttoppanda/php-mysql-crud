@@ -9,8 +9,10 @@ define('ROOT', realpath(dirname(__FILE__)) . DS);//Ruta raiz del aplicativo
 try{
 
     require_once ROOT . 'Launching.php';
+    require_once ROOT . 'model/Model.php';
     require_once ROOT . 'controller/Controller.php';
     require_once ROOT . 'view/View.php';
+    require_once ROOT . 'Conexion.php';
 
     new Launching($_GET);
 
