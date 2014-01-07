@@ -1,7 +1,13 @@
 <?php
 class indexController extends Controller{
+
+	public function __construct() {        
+        parent::__construct();     
+        
+    }
 	
 	public function index(){
-		echo "string";
+		$this->_view->titulo = 'Pagina principal';
+		$this->_view->render();
 	}
 }

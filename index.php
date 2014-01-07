@@ -10,11 +10,12 @@ try{
 
     require_once ROOT . 'Launching.php';
     require_once ROOT . 'controller/Controller.php';
+    require_once ROOT . 'view/View.php';
 
     new Launching($_GET);
 
     
 }
 catch(Exception $e){
-    echo $e->getMessage();
+    echo $e->getMessage();  
 }

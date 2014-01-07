@@ -2,8 +2,8 @@
 
 class Launching{
 
-	private $controller;
-	private $method;
+	private $_controller;
+	private $_method;
 
 	public function __construct($url){
 
@@ -21,7 +21,7 @@ class Launching{
 		$controllerRoute = ROOT.'controller'.DS.$controllerName.'Controller.php';
 		if (is_readable($controllerRoute)) {
 		 	include $controllerRoute;
-		 	$this->controller = $controllerName.'controller';
+		 	$this->_controller = $controllerName.'controller';
 		} else {
 		 	throw new Exception('error 404');
 		}
@@ -29,15 +29,16 @@ class Launching{
 
 	private function method($method){
 
-		$this->method = (is_callable(array($this->controller, $method)))?$method:'index';		            
+		$this->_method = (is_callable(array($this->_controller, $method)))?$method:'index';		            
 		
 	}
 
 	private function runController($args){
+		$this->_controller = new $this->_controller;
 		if (!empty($args)) {
-            call_user_func_array(array($this->controller, $this->method), $args); 
+            call_user_func_array(array($this->_controller, $this->_method), $args); 
         } else {            
-            call_user_func(array($this->controller, $this->method));
+            call_user_func(array($this->_controller, $this->_method));
         }
 	}
 
