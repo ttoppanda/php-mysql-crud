@@ -3,12 +3,18 @@
             $containerPopUp = $('.container_popup'),
             $close = $('#close'),
             $inputNombre = $('#input_nombre'),
-            $inputEmail = $('#input_email');
+            $inputEmail = $('#input_email'),
+            $inputId = $('#input_id');;
 
     $update.on('click', function() {
         $containerPopUp.addClass("show");
-
-        //alert($(this).data("id"));
+        var $td = $(this).parent(),
+            $tdName = $td.siblings('.td_name').text(),
+            $tdEmail = $td.siblings('.td_email').text(),
+            $tdId = $td.siblings('.td_id').text();
+        $inputEmail.val($tdEmail);   
+        $inputNombre.val($tdName);
+        $inputId.val($tdId);
     });
     $close.on('click', function() {
         $containerPopUp.removeClass("show");
@@ -21,7 +27,15 @@
 
 })(jQuery);
 function eventForm() {
-    $('#notificaciones').css("display", "block");
-    var str = $("form").serialize();
-    $.post(this.url, str, this.respuesta, 'json');
+    
+    var str = $("form").serialize(),
+            url = 'CRUD/c=index&m=actualizar';
+    $.post(url, str, respuesta, 'json');
 }
+function respuesta(r) {
+    console.log(r)
+
+
+}
+
+
