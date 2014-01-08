@@ -12,4 +12,9 @@ class indexController extends Controller{
 		$this->_view->users = $this->_model->getUsers();
 		$this->_view->render();
 	}
+        public function actualizar(){
+		$this->_view->titulo = 'Actualizar';
+		$this->_view->users = $this->_model->getUsers();
+		$this->_view->render('index',false);
+	}
 }

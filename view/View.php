@@ -2,10 +2,12 @@
 
 class View{	
 
-	public function render($viewName = 'index'){
-		$this->isReadable(ROOT.'view'.DS.'header.php');
+	public function render($viewName = 'index',$ajax = true){
+                if ($ajax)
+                    $this->isReadable(ROOT.'view'.DS.'header.php');
 		$this->isReadable(ROOT.'view'.DS.$viewName . '.php');
-		$this->isReadable(ROOT.'view'.DS.'footer.php');
+                if ($ajax)
+                    $this->isReadable(ROOT.'view'.DS.'footer.php');
 
 	}
 
