@@ -1,11 +1,13 @@
 <h2>Listado de usuarios</h2>
-<table>
+<table summary="Usuario ">
      <caption>Usuarios</caption>
     <thead>
         <tr>
             <th>Id</th>
             <th>Nombre</th>
             <th>Email</th>
+            <th>Actualizar</th>
+            <th>Eliminar</th>
         </tr>
     </thead>
     <tbody>
